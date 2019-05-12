@@ -26,6 +26,7 @@ return function (App $app) {
                 return $response->withJson([test=>'test']);
             });
             $this->get('/hello', TestController::class.':hello');
+            $this->get('/user/{id}', TestController::class.':saveUser');
         }
     );
 };

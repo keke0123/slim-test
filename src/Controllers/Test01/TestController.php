@@ -6,6 +6,8 @@ use Interop\Container\ContainerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+use Models\User;
+
 class TestController
 {
 
@@ -13,6 +15,8 @@ class TestController
      * @var \Interop\Container\ContainerInterface
      */
     protected $container;
+    /** @var \Illuminate\Database\Capsule\Manager */
+    protected $db;
 
     /**
      * BaseController constructor.
@@ -22,11 +26,29 @@ class TestController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $this->db = $container->get('db');
     }
 
     public function hello(Request $request, Response $response)
     {
         return $response->withJson([test=>'hello']);
+    }
+
+    public function saveUser(Request $request, Response $response, array $args)
+    {
+//        $user = new User;
+//        $user->name = 'John';
+//        $user->age = 28;
+//        $user->save();
+        $users = new User;
+        $users = User::find(1);
+        print_r($users);
+        return $response;
+//        return $response->withJson(var_dump($users));
+//        foreach ($users as $user) {
+//            var_dump($user->name);
+//        }
+//        return $response->withJson([id=>$args['id']]);
     }
 
 }
