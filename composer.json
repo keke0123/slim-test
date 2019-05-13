@@ -26,7 +26,8 @@
         "psr-4": {
             "Controllers\\": "src/Controllers",
             "Services\\": "src/Services",
-            "Models\\": "src/Models"
+            "Models\\": "src/Models",
+            "Middleware\\": "src/Middleware"
         }
     },
     "autoload-dev": {
@@ -34,7 +35,8 @@
             "Tests\\": "tests/",
             "Controllers\\": "src/Controllers",
             "Services\\": "src/Services",
-            "Models\\": "src/Models"
+            "Models\\": "src/Models",
+            "Middleware\\": "src/Middleware"
         }
     },
     "config": {

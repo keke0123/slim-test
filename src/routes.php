@@ -8,6 +8,7 @@ use Controllers\Test01\TestController;
 
 return function (App $app) {
     $container = $app->getContainer();
+    $auth = $app->getContainer()->get('auth');
 
 //    $app->get('/[{name}]', function (Request $request, Response $response, array $args) use ($container) {
 //        // Sample log message
@@ -18,15 +19,15 @@ return function (App $app) {
 //    });
 
     $app->group('/test',
-        function($app) {
-            $this->get('/', function (Request $request, Response $response, array $args) {
+        function() use ($app, $auth) {
+            $app->get('/', function (Request $request, Response $response, array $args) {
                 return $response->withJson([test=>'']);
             });
-            $this->get('/test', function (Request $request, Response $response, array $args) {
+            $app->get('/test', function (Request $request, Response $response, array $args) {
                 return $response->withJson([test=>'test']);
             });
-            $this->get('/hello', TestController::class.':hello');
-            $this->get('/user/{id}', TestController::class.':saveUser');
+            $app->get('/hello', TestController::class.':hello')->add($auth);
+            $app->get('/user/{id}', TestController::class.':saveUser');
         }
     );
     $app->group('/api',

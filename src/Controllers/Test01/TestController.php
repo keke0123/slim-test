@@ -31,7 +31,8 @@ class TestController
 
     public function hello(Request $request, Response $response)
     {
-        return $response->withJson([test=>'hello']);
+        $response->getBody()->write(' Hello ');
+        return $response;
     }
 
     public function saveUser(Request $request, Response $response, array $args)

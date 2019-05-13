@@ -1,6 +1,7 @@
 <?php
 
 use Slim\App;
+use Middleware\Auth;
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -32,5 +33,9 @@ return function (App $app) {
         $capsule->bootEloquent();
 
         return $capsule;
+    };
+
+    $container['auth'] = function ($c) {
+        return new Auth($c);
     };
 };

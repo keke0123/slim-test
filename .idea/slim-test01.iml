@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Models" isTestSource="false" packagePrefix="Models\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Services" isTestSource="false" packagePrefix="Services\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Middleware" isTestSource="false" packagePrefix="Middleware\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/container-interop/container-interop" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
