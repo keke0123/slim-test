@@ -29,4 +29,11 @@ return function (App $app) {
             $this->get('/user/{id}', TestController::class.':saveUser');
         }
     );
+    $app->group('/api',
+        function($app) {
+            $this->get('/auth/login', function (Request $request, Response $response, array $args) {
+                return $response->withJson([id=>'keke']);
+            });
+        }
+    );
 };
